@@ -43,7 +43,7 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 - Feedback visual al morir. (Partículas o algo).
 - Todas sus acciones están animadas y con sonido.
 
-## Pickables
+### Pickables
 
 - El jugador se cura.
 - El jugador aumenta el daño.
