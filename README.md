@@ -21,8 +21,8 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 
 ### General
 
-- Crear un nuevo repositorio con nombre: “TP06_ApellidoNombre”.
-- Crear un proyecto de Unity con el mismo nombre.
+- ✅ Crear un nuevo repositorio con nombre: “TP06_ApellidoNombre”.
+- ✅ Crear un proyecto de Unity con el mismo nombre.
 - Hay al menos 2 escenas: 1-MainMenu, 2-GamePlay.
 - El juego debe estar publicado en Itchio y ser presentable (Entregar ambos links en BB).
 

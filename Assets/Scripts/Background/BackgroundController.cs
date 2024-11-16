@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 
 public class BackgroundController : MonoBehaviour {
-    [SerializeField] GameObject cam;
-    [SerializeField] Single parallaxEffect;
+    [SerializeField] private GameObject cam;
+    [SerializeField] private Single parallaxEffect;
 
     private Single startPos;
     private Single length;
@@ -21,7 +21,7 @@ public class BackgroundController : MonoBehaviour {
         Single dist = cam.transform.position.x * parallaxEffect;
         Single movement = cam.transform.position.x * (1 - parallaxEffect);
 
-        transform.position = new Vector3(startPos + dist, transform.position.y, transform.position.z);
+        transform.position = new Vector3(startPos + dist, cam.transform.position.y, transform.position.z);
 
         if (movement > startPos + length) {
             startPos += length;
