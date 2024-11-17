@@ -28,9 +28,9 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 
 ### Jugador
 
-- Puede moverse hacia la derecha y hacia la izquierda.
+- ✅ Puede moverse hacia la derecha y hacia la izquierda.
 - Debe poder dañar de alguna manera a enemigos.
-- Debe poder saltar.
+- ✅ Debe poder saltar.
 - Posee barra de vida.
 - Posibilidad de curarse.
 - Todas sus acciones están animadas y con sonido.

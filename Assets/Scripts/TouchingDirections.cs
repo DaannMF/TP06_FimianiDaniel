@@ -18,14 +18,11 @@ public class TouchingDirections : MonoBehaviour {
     [SerializeField] private readonly RaycastHit2D[] ceilingHits = new RaycastHit2D[5];
     [SerializeField] private readonly Single ceilingDistance = 0.5f;
 
+    private Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
     private Animator animator;
     private Boolean _isGround;
-    private Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-
     public Boolean IsGround {
-        get {
-            return _isGround;
-        }
+        get { return _isGround; }
         private set {
             _isGround = value;
             animator.SetBool(Animations.IsGround, value);
@@ -34,9 +31,7 @@ public class TouchingDirections : MonoBehaviour {
 
     private Boolean _isOnWAll;
     public Boolean IsOnWAll {
-        get {
-            return _isOnWAll;
-        }
+        get { return _isOnWAll; }
         private set {
             _isOnWAll = value;
             animator.SetBool(Animations.IsOnWAll, value);
@@ -45,9 +40,7 @@ public class TouchingDirections : MonoBehaviour {
 
     private Boolean _isOnCeiling;
     public Boolean IsOnCeiling {
-        get {
-            return _isOnCeiling;
-        }
+        get { return _isOnCeiling; }
         private set {
             _isOnCeiling = value;
             animator.SetBool(Animations.IsOnCeiling, value);

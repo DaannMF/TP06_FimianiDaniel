@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 8551237180129494268}
   - component: {fileID: 4653962149071098272}
   - component: {fileID: 1851516475421145472}
+  - component: {fileID: 6438311198106061522}
   - component: {fileID: 2161773362125932695}
   - component: {fileID: 2076711109929698539}
   - component: {fileID: 3038589536747304823}
   - component: {fileID: 7978879182163348165}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,9 +77,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1506446701
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1199206984, guid: 7070bd769be134795bd05892af6d02c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
@@ -131,7 +132,18 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   touchCollider: {fileID: 0}
-  groundDistance: 0.5
+--- !u!114 &6438311198106061522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962634505530401997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2245b44fd2c8243aab71799570782b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2161773362125932695
 Animator:
   serializedVersion: 5
@@ -199,7 +211,19 @@ MonoBehaviour:
     m_ActionId: a41d6da0-ca13-4602-9fd0-08223926f2c8
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4653962149071098272}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9e2a50ce-1454-4b19-b655-3b8138c7932d
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:

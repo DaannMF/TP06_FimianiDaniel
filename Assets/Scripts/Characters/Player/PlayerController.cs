@@ -12,13 +12,19 @@ public class PlayerController : MonoBehaviour {
     private Vector2 moveInput;
     private Boolean _isMoving = false;
     public Boolean IsMoving {
-        get {
-            return _isMoving;
-        }
+        get { return _isMoving; }
         private set {
             _isMoving = value;
             animator.SetBool(Animations.IsMoving, value);
         }
+    }
+
+    public Boolean CanMove {
+        get { return animator.GetBool(Animations.CanMove); }
+    }
+
+    public Boolean IsAlive {
+        get { return animator.GetBool(Animations.IsAlive); }
     }
 
     private void Awake() {
@@ -33,34 +39,43 @@ public class PlayerController : MonoBehaviour {
 
     public void OnInputMove(InputAction.CallbackContext context) {
         moveInput = context.ReadValue<Vector2>();
-        IsMoving = moveInput != Vector2.zero;
-        SetFacingDirection();
+        if (IsAlive) {
+            IsMoving = moveInput != Vector2.zero;
+            SetFacingDirection();
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context) {
-        if (context.started) {
+        if (context.started && CanMove) {
             Jump();
         }
     }
 
+    public void OnAttack(InputAction.CallbackContext context) {
+        if (context.started) {
+            animator.SetTrigger(Animations.AttackTrigger);
+        }
+    }
+
     private void SetFacingDirection() {
-        if (moveInput.x != 0)
-            transform.localScale = new Vector3(
-                    Mathf.Sign(moveInput.x),
-                    transform.localScale.y,
-                    transform.localScale.z
-            );
+        if (moveInput.x != 0) {
+            transform.localScale = new Vector2(Mathf.Sign(moveInput.x), 1);
+        }
     }
 
     private void Move() {
-        if (!touchingDirections.IsOnWAll)
+        if (CanMove && !touchingDirections.IsOnWAll) {
             rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
-        animator.SetFloat(Animations.YVelocity, rb.velocity.y);
+            animator.SetFloat(Animations.YVelocity, rb.velocity.y);
+        }
+        else {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
     private void Jump() {
         if (touchingDirections.IsGround) {
-            animator.SetTrigger(Animations.Jump);
+            animator.SetTrigger(Animations.JumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
