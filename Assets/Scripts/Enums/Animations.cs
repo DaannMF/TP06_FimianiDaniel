@@ -13,4 +13,5 @@ public static class Animations {
     public static String IsAlive { get { return "isAlive"; } }
     public static string LockVelocity { get { return "lockVelocity"; } }
     public static string HitTrigger { get { return "hit"; } }
+    public static string AttackCoolDown { get { return "attackCoolDown"; } }
 }

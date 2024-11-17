@@ -6,13 +6,15 @@ public enum WalkableDirection {
     Left
 }
 
-[RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class Skeleton : MonoBehaviour {
     [SerializeField] private Single walkSpeed = 5f;
     private Rigidbody2D rb;
     private Animator animator;
     private DetectionZone detectionZone;
+    private DetectionZone groundDetectionZone;
     private TouchingDirections touchingDirections;
+    private Damageable damageable;
     private Vector2 lookDirection = Vector2.right;
     private WalkableDirection _walkDirection;
     public WalkableDirection WalkDirection {
@@ -39,29 +41,45 @@ public class Skeleton : MonoBehaviour {
         get { return animator.GetBool(Animations.CanMove); }
     }
 
+    public Single AttackCoolDown {
+        get { return animator.GetFloat(Animations.AttackCoolDown); }
+        private set { animator.SetFloat(Animations.AttackCoolDown, Mathf.Max(value, 0)); }
+    }
+
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
-        detectionZone = GetComponentInChildren<DetectionZone>();
+        DetectionZone[] detectionZones = GetComponentsInChildren<DetectionZone>();
+        detectionZone = detectionZones[0];
+        groundDetectionZone = detectionZones[1];
         animator = GetComponent<Animator>();
+        damageable = GetComponent<Damageable>();
     }
 
     private void Update() {
         DetectTarget();
+        CoolDownAttack();
     }
 
     private void FixedUpdate() {
         Move();
     }
 
+    public void OnHit(Int16 damage, Vector2 knockBack) {
+        rb.velocity = new Vector2(knockBack.x, rb.velocity.y + knockBack.y);
+    }
+
     private void Move() {
-        if (touchingDirections.IsGround && touchingDirections.IsOnWAll) {
+        if (touchingDirections.IsGround &&
+        (touchingDirections.IsOnWAll || !groundDetectionZone.HasDetectedColliders)) {
             FlipDirection();
         }
-        if (CanMove)
-            rb.velocity = new Vector2(walkSpeed * lookDirection.x, rb.velocity.y);
-        else
-            rb.velocity = new Vector2(0, rb.velocity.y);
+        if (!damageable.LockVelocity) {
+            if (CanMove)
+                rb.velocity = new Vector2(walkSpeed * lookDirection.x, rb.velocity.y);
+            else
+                rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
     private void FlipDirection() {
@@ -70,5 +88,10 @@ public class Skeleton : MonoBehaviour {
 
     private void DetectTarget() {
         HasTarget = detectionZone.HasDetectedColliders;
+    }
+
+    private void CoolDownAttack() {
+        if (AttackCoolDown > 0)
+            AttackCoolDown -= Time.deltaTime;
     }
 }
