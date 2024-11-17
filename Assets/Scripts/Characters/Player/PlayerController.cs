@@ -2,13 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerController : MonoBehaviour {
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
     private Rigidbody2D rb;
     private Animator animator;
     private TouchingDirections touchingDirections;
+
     private Vector2 moveInput;
     private Boolean _isMoving = false;
     public Boolean IsMoving {
@@ -25,6 +26,11 @@ public class PlayerController : MonoBehaviour {
 
     public Boolean IsAlive {
         get { return animator.GetBool(Animations.IsAlive); }
+    }
+
+    public Boolean LockVelocity {
+        get { return animator.GetBool(Animations.LockVelocity); }
+        set { animator.SetBool(Animations.LockVelocity, value); }
     }
 
     private void Awake() {
@@ -57,6 +63,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void OnHit(Int16 damage, Vector2 knockBack) {
+        if (IsAlive) {
+            LockVelocity = true;
+            rb.velocity = new Vector2(knockBack.x, rb.velocity.y + knockBack.y);
+        }
+    }
+
     private void SetFacingDirection() {
         if (moveInput.x != 0) {
             transform.localScale = new Vector2(Mathf.Sign(moveInput.x), 1);
@@ -64,12 +77,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Move() {
-        if (CanMove && !touchingDirections.IsOnWAll) {
-            rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
-            animator.SetFloat(Animations.YVelocity, rb.velocity.y);
-        }
-        else {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+        if (!LockVelocity) {
+            if (CanMove && !touchingDirections.IsOnWAll) {
+                rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
+                animator.SetFloat(Animations.YVelocity, rb.velocity.y);
+            }
+            else {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
         }
     }
 

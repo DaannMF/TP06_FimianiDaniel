@@ -6663,6 +6663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 1456646903058788888, guid: 3ee27a692a272479e899e4e9472336c1, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5556474723595551929, guid: 3ee27a692a272479e899e4e9472336c1, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour {
     [SerializeField] private Int16 maxHealth = 100;
@@ -7,6 +8,7 @@ public class Damageable : MonoBehaviour {
     [SerializeField] private Boolean isAlive = true;
     [SerializeField] private Boolean isInvencible = false;
     [SerializeField] private Single invincibilityTime = 1.5f;
+    [SerializeField] private UnityEvent<Int16, Vector2> onDamageTaken;
 
     private Animator animator;
 
@@ -43,11 +45,17 @@ public class Damageable : MonoBehaviour {
         CheckInvincibility();
     }
 
-    public void TakeDamage(Int16 damage) {
+    public Boolean TakeDamage(Int16 damage, Vector2 knockBack) {
         if (IsAlive && !isInvencible) {
             Health -= damage;
+
+            NotifyDamaKnockBack(damage, knockBack);
+
             isInvencible = true;
+            return true;
         }
+
+        return false;
     }
 
     private void CheckInvincibility() {
@@ -59,5 +67,10 @@ public class Damageable : MonoBehaviour {
 
             timeSinceHit += Time.deltaTime;
         }
+    }
+
+    private void NotifyDamaKnockBack(Int16 damage, Vector2 knockBack) {
+        animator.SetTrigger(Animations.HitTrigger);
+        onDamageTaken.Invoke(damage, knockBack);
     }
 }

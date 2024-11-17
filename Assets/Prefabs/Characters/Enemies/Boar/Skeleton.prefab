@@ -124,6 +124,9 @@ MonoBehaviour:
   isAlive: 1
   isInvencible: 0
   invincibilityTime: 1.5
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &1456646903058788888
 Rigidbody2D:
   serializedVersion: 4
@@ -5192,6 +5195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  knockBack: {x: 5, y: 2}
 --- !u!1 &5255484657186909196
 GameObject:
   m_ObjectHideFlags: 0
