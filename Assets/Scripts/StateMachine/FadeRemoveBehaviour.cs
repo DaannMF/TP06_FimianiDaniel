@@ -1,7 +1,5 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class FadeRemoveBehaviour : StateMachineBehaviour {
     [SerializeField] private Single fadeTime = 0.5f;

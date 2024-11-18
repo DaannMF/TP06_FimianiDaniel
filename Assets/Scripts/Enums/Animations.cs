@@ -11,7 +11,7 @@ public static class Animations {
     public static String CanMove { get { return "canMove"; } }
     public static String HasTarget { get { return "hasTarget"; } }
     public static String IsAlive { get { return "isAlive"; } }
-    public static string LockVelocity { get { return "lockVelocity"; } }
-    public static string HitTrigger { get { return "hit"; } }
-    public static string AttackCoolDown { get { return "attackCoolDown"; } }
+    public static String LockVelocity { get { return "lockVelocity"; } }
+    public static String HitTrigger { get { return "hit"; } }
+    public static String AttackCoolDown { get { return "attackCoolDown"; } }
 }

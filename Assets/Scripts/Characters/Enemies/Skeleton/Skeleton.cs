@@ -1,11 +1,6 @@
 using System;
 using UnityEngine;
 
-public enum WalkableDirection {
-    Right,
-    Left
-}
-
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class Skeleton : MonoBehaviour {
     [SerializeField] private Single walkSpeed = 5f;

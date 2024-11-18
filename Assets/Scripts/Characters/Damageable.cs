@@ -60,6 +60,22 @@ public class Damageable : MonoBehaviour {
             return true;
         }
 
+        if (isInvencible) {
+            CharactersEvents.characterInvincible.Invoke(gameObject);
+        }
+
+        return false;
+    }
+
+    public Boolean Heal(Int16 healAmount) {
+        if (IsAlive && Health < MaxHealth) {
+            Int16 maxHealth = (Int16)Math.Max(MaxHealth - Health, 0);
+            Int16 actualHealAmount = (Int16)Math.Min(healAmount, maxHealth);
+            Health += actualHealAmount;
+            CharactersEvents.characterHealed.Invoke(gameObject, actualHealAmount);
+            return true;
+        }
+
         return false;
     }
 
@@ -78,5 +94,7 @@ public class Damageable : MonoBehaviour {
         LockVelocity = true;
         animator.SetTrigger(Animations.HitTrigger);
         onDamageTaken.Invoke(damage, knockBack);
+
+        CharactersEvents.characterDamaged.Invoke(gameObject, damage);
     }
 }
