@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DetectionZone : MonoBehaviour {
-    private List<Collider2D> detectedColliders = new();
+    [SerializeField] private List<Collider2D> detectedColliders = new();
     public Boolean HasDetectedColliders => detectedColliders.Count > 0;
 
     private void OnTriggerEnter2D(Collider2D other) {

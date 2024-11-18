@@ -4,13 +4,15 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class PlayerController : MonoBehaviour {
-    [SerializeField] private float walkSpeed = 5f;
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private Single walkSpeed = 5f;
+    [SerializeField] private Single jumpForce = 10f;
+    [SerializeField] private Int16 maxJumps = 2;
     private Rigidbody2D rb;
     private Animator animator;
     private TouchingDirections touchingDirections;
     private Damageable damageable;
     private Vector2 moveInput;
+    private Int16 jumpCount = 0;
     private Boolean _isMoving = false;
     public Boolean IsMoving {
         get { return _isMoving; }
@@ -33,6 +35,10 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
         damageable = GetComponent<Damageable>();
+    }
+
+    private void Update() {
+        ResetJumpCount();
     }
 
     private void FixedUpdate() {
@@ -83,9 +89,17 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Jump() {
-        if (touchingDirections.IsGround) {
-            animator.SetTrigger(Animations.JumpTrigger);
+        if (touchingDirections.IsGround || jumpCount < maxJumps - 1) {
+            if (jumpCount == 0)
+                animator.SetTrigger(Animations.JumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpCount++;
+        }
+    }
+
+    private void ResetJumpCount() {
+        if (IsAlive && touchingDirections.IsGround) {
+            jumpCount = 0;
         }
     }
 }
