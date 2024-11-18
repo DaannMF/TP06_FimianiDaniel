@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfce3f673dd142b1b46c4561a149282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 13
   knockBack: {x: 4, y: 0}
 --- !u!1 &5727700855877441514
 GameObject:
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfce3f673dd142b1b46c4561a149282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 17
   knockBack: {x: 4, y: 0}
 --- !u!1 &7962634505530401997
 GameObject:

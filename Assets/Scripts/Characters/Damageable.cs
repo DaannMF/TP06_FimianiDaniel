@@ -9,6 +9,7 @@ public class Damageable : MonoBehaviour {
     [SerializeField] private Boolean isInvencible = false;
     [SerializeField] private Single invincibilityTime = 1.5f;
     [SerializeField] private UnityEvent<Int16, Vector2> onDamageTaken;
+    [SerializeField] public UnityEvent<Single, Single> onHealthChanged;
 
     private Animator animator;
 
@@ -23,6 +24,7 @@ public class Damageable : MonoBehaviour {
         get { return health; }
         private set {
             health = value;
+            onHealthChanged?.Invoke(health, maxHealth);
             if (health <= 0) {
                 IsAlive = false;
             }

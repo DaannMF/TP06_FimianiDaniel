@@ -29,23 +29,23 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 ### Jugador
 
 - ✅ Puede moverse hacia la derecha y hacia la izquierda.
-- Debe poder dañar de alguna manera a enemigos.
+- ✅ Debe poder dañar de alguna manera a enemigos.
 - ✅ Debe poder saltar.
 - Posee barra de vida.
-- Posibilidad de curarse.
+- ✅ Posibilidad de curarse.
 - Todas sus acciones están animadas y con sonido.
 
 ### Enemigos
 
-- Le quitan vida al Jugador.
+- ✅ Le quitan vida al Jugador.
 - Poseen barra de vida.
-- El jugador les puede quitar vida de alguna manera.
-- Feedback visual al morir. (Partículas o algo).
+- ✅ El jugador les puede quitar vida de alguna manera.
+- ✅ Feedback visual al morir. (Partículas o algo).
 - Todas sus acciones están animadas y con sonido.
 
 ### Pickables
 
-- El jugador se cura.
+- ✅ El jugador se cura.
 - El jugador aumenta el daño.
 - El jugador no puede recibir daño durante 10 segundos.
 - Monedas.
@@ -65,6 +65,6 @@ etc).
 ### Extras
 
 - El juego se puede jugar a través de la Web sin descargar (Build WebGL).
-- El jugador posee Doble Salto.
+- ✅ El jugador posee Doble Salto.
 - El jugador posee Triple Salto a través de un power up.
 - Tienda: Con las Monedas se pueden comprar cosas (Ej: Chaleco, +Daño, +VidaMax, etc).
