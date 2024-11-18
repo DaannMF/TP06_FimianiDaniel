@@ -20,7 +20,7 @@ public class DamageTextPool : MonoBehaviour {
     }
 
     private void Awake() {
-        canvas = FindObjectOfType<Canvas>();
+        canvas = GameObject.FindGameObjectsWithTag("GameCanvas")[0].GetComponent<Canvas>();
     }
 
     private void Start() {

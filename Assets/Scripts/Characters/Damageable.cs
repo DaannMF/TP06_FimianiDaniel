@@ -10,6 +10,7 @@ public class Damageable : MonoBehaviour {
     [SerializeField] private Single invincibilityTime = 1.5f;
     [SerializeField] private UnityEvent<Int16, Vector2> onDamageTaken;
     [SerializeField] public UnityEvent<Single, Single> onHealthChanged;
+    private EnemyFloatingHealthBar floatingHealthBar;
 
     private Animator animator;
 
@@ -46,6 +47,8 @@ public class Damageable : MonoBehaviour {
 
     private void Awake() {
         animator = GetComponent<Animator>();
+        floatingHealthBar = GetComponentInChildren<EnemyFloatingHealthBar>();
+
     }
 
     private void Update() {
@@ -96,7 +99,7 @@ public class Damageable : MonoBehaviour {
         LockVelocity = true;
         animator.SetTrigger(Animations.HitTrigger);
         onDamageTaken.Invoke(damage, knockBack);
-
+        if (floatingHealthBar) floatingHealthBar.UpdateHealthBar(Health, MaxHealth);
         CharactersEvents.characterDamaged.Invoke(gameObject, damage);
     }
 }

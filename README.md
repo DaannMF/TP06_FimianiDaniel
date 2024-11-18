@@ -23,7 +23,7 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 
 - ✅ Crear un nuevo repositorio con nombre: “TP06_ApellidoNombre”.
 - ✅ Crear un proyecto de Unity con el mismo nombre.
-- Hay al menos 2 escenas: 1-MainMenu, 2-GamePlay.
+- ✅ Hay al menos 2 escenas: 1-MainMenu, 2-GamePlay.
 - El juego debe estar publicado en Itchio y ser presentable (Entregar ambos links en BB).
 
 ### Jugador
@@ -31,14 +31,14 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 - ✅ Puede moverse hacia la derecha y hacia la izquierda.
 - ✅ Debe poder dañar de alguna manera a enemigos.
 - ✅ Debe poder saltar.
-- Posee barra de vida.
+- ✅ Posee barra de vida.
 - ✅ Posibilidad de curarse.
 - Todas sus acciones están animadas y con sonido.
 
 ### Enemigos
 
 - ✅ Le quitan vida al Jugador.
-- Poseen barra de vida.
+- ✅ Poseen barra de vida.
 - ✅ El jugador les puede quitar vida de alguna manera.
 - ✅ Feedback visual al morir. (Partículas o algo).
 - Todas sus acciones están animadas y con sonido.
