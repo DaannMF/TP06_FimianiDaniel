@@ -28,27 +28,27 @@ public class DamageTextPool : MonoBehaviour {
     }
 
     private void LoadPool() {
-        this.damageTextPool = new List<GameObject>(this.poolSize);
-        for (int i = 0; i < this.poolSize; i++) {
+        damageTextPool = new List<GameObject>(poolSize);
+        for (int i = 0; i < poolSize; i++) {
             GameObject obstacle = Instantiate(damageTextPrefabs, canvas.transform);
             obstacle.SetActive(false);
-            this.damageTextPool.Add(obstacle);
+            damageTextPool.Add(obstacle);
         }
     }
 
     public GameObject GetPooledObject() {
-        for (int i = 0; i < this.poolSize; i++) {
-            if (!this.damageTextPool[i].activeInHierarchy) {
-                return this.damageTextPool[i];
+        for (int i = 0; i < poolSize; i++) {
+            if (!damageTextPool[i].activeInHierarchy) {
+                return damageTextPool[i];
             }
         }
         return null;
     }
 
     public void DeactivateInstances() {
-        if (this.damageTextPool is not null) {
-            for (int i = 0; i < this.poolSize; i++) {
-                this.damageTextPool[i].SetActive(false);
+        if (damageTextPool is not null) {
+            for (int i = 0; i < poolSize; i++) {
+                damageTextPool[i].SetActive(false);
             }
         }
     }

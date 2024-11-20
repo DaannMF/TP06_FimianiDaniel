@@ -28,27 +28,27 @@ public class InvincibleTextPool : MonoBehaviour {
     }
 
     private void LoadPool() {
-        this.invincibleTextPool = new List<GameObject>(this.poolSize);
-        for (int i = 0; i < this.poolSize; i++) {
+        invincibleTextPool = new List<GameObject>(poolSize);
+        for (int i = 0; i < poolSize; i++) {
             GameObject obstacle = Instantiate(invincibleTextPrefabs, canvas.transform);
             obstacle.SetActive(false);
-            this.invincibleTextPool.Add(obstacle);
+            invincibleTextPool.Add(obstacle);
         }
     }
 
     public GameObject GetPooledObject() {
-        for (int i = 0; i < this.poolSize; i++) {
-            if (!this.invincibleTextPool[i].activeInHierarchy) {
-                return this.invincibleTextPool[i];
+        for (int i = 0; i < poolSize; i++) {
+            if (!invincibleTextPool[i].activeInHierarchy) {
+                return invincibleTextPool[i];
             }
         }
         return null;
     }
 
     public void DeactivateInstances() {
-        if (this.invincibleTextPool is not null) {
-            for (int i = 0; i < this.poolSize; i++) {
-                this.invincibleTextPool[i].SetActive(false);
+        if (invincibleTextPool is not null) {
+            for (int i = 0; i < poolSize; i++) {
+                invincibleTextPool[i].SetActive(false);
             }
         }
     }

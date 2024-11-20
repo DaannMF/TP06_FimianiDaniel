@@ -52,8 +52,8 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 
 ### Sonido
 
-- Audio Mixer: Master, Music, FX, Ui.
-- Al menos 3 deben poder ser modificados por sliders en Settings.
+- ✅ Audio Mixer: Master, Music, FX, Ui.
+- ✅ Al menos 3 deben poder ser modificados por sliders en Settings.
 - Toda acción del juego debe reflejarse en sonido.
 
 ### Datos
@@ -64,7 +64,7 @@ etc).
 
 ### Extras
 
-- El juego se puede jugar a través de la Web sin descargar (Build WebGL).
+- ✅ El juego se puede jugar a través de la Web sin descargar (Build WebGL).
 - ✅ El jugador posee Doble Salto.
 - El jugador posee Triple Salto a través de un power up.
 - Tienda: Con las Monedas se pueden comprar cosas (Ej: Chaleco, +Daño, +VidaMax, etc).

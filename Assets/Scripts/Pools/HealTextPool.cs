@@ -28,27 +28,27 @@ public class HealTextPool : MonoBehaviour {
     }
 
     private void LoadPool() {
-        this.healTextPool = new List<GameObject>(this.poolSize);
-        for (int i = 0; i < this.poolSize; i++) {
+        healTextPool = new List<GameObject>(poolSize);
+        for (int i = 0; i < poolSize; i++) {
             GameObject obstacle = Instantiate(healTextPrefabs, canvas.transform);
             obstacle.SetActive(false);
-            this.healTextPool.Add(obstacle);
+            healTextPool.Add(obstacle);
         }
     }
 
     public GameObject GetPooledObject() {
-        for (int i = 0; i < this.poolSize; i++) {
-            if (!this.healTextPool[i].activeInHierarchy) {
-                return this.healTextPool[i];
+        for (int i = 0; i < poolSize; i++) {
+            if (!healTextPool[i].activeInHierarchy) {
+                return healTextPool[i];
             }
         }
         return null;
     }
 
     public void DeactivateInstances() {
-        if (this.healTextPool is not null) {
-            for (int i = 0; i < this.poolSize; i++) {
-                this.healTextPool[i].SetActive(false);
+        if (healTextPool is not null) {
+            for (int i = 0; i < poolSize; i++) {
+                healTextPool[i].SetActive(false);
             }
         }
     }

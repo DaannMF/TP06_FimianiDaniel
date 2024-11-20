@@ -1,9 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
-
     [Header("Buttons")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button controlsButton;
@@ -12,10 +12,14 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] private Button exitButton;
 
     [Header("Panels")]
+    [SerializeField] private GameObject panelPause;
+    [SerializeField] private GameObject titleText;
     [SerializeField] private GameObject panelMainMenu;
     [SerializeField] private GameObject controlsPanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
+
+    private PlayerInput playerInput;
 
     private void Awake() {
         playButton.onClick.AddListener(OnPlayButtonClicked);
@@ -23,6 +27,15 @@ public class MainMenu : MonoBehaviour {
         settingsButton.onClick.AddListener(OnSettingsButtonClicked);
         creditsButton.onClick.AddListener(OnCreditsButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
+        playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+    }
+
+    private void OnEnable() {
+        titleText.SetActive(true);
+    }
+
+    private void OnDisable() {
+        titleText.SetActive(false);
     }
 
     private void OnDestroy() {
@@ -36,22 +49,27 @@ public class MainMenu : MonoBehaviour {
     private void OnPlayButtonClicked() {
         if (SceneManager.GetActiveScene().name != "GamePlayScene")
             SceneManager.LoadScene("GamePlayScene");
-        else
-            panelMainMenu.SetActive(false);
+        else {
+            panelPause.SetActive(false);
+            playerInput.ActivateInput();
+        }
 
         Time.timeScale = 1;
     }
 
     private void OnControlsButtonClicked() {
         controlsPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     private void OnSettingsButtonClicked() {
         settingsPanel.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     private void OnCreditsButtonClicked() {
         creditsPanel.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void OnExitButtonClicked() {

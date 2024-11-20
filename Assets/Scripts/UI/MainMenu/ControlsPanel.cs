@@ -9,15 +9,15 @@ public class ControlsPanel : MonoBehaviour {
     [SerializeField] private GameObject mainMenuPanel;
 
     private void Awake() {
-        this.backButton.onClick.AddListener(OnBackButtonClicked);
+        backButton.onClick.AddListener(OnBackButtonClicked);
     }
 
     private void OnDestroy() {
-        this.backButton.onClick.RemoveListener(OnBackButtonClicked);
+        backButton.onClick.RemoveListener(OnBackButtonClicked);
     }
 
     private void OnBackButtonClicked() {
-        this.mainMenuPanel.SetActive(true);
-        this.gameObject.SetActive(false);
+        mainMenuPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
