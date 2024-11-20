@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
         CharactersEvents.characterDamaged += CreateDamageText;
         CharactersEvents.characterHealed += CreateHealthText;
         CharactersEvents.characterInvincible += CreateInvincibleText;
+        CharactersEvents.powerUpPicked += CreatePowerUpText;
         playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
     }
 
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour {
         CharactersEvents.characterDamaged -= CreateDamageText;
         CharactersEvents.characterHealed -= CreateHealthText;
         CharactersEvents.characterInvincible -= CreateInvincibleText;
+        CharactersEvents.powerUpPicked -= CreatePowerUpText;
     }
 
     public void CreateDamageText(GameObject character, Int16 damage) {
@@ -48,6 +50,17 @@ public class UIManager : MonoBehaviour {
         Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
         GameObject invincibleText = InvincibleTextPool.SharedInstance.GetPooledObject();
         if (invincibleText) {
+            invincibleText.transform.position = spawnPosition;
+            invincibleText.SetActive(true);
+        }
+    }
+
+    public void CreatePowerUpText(GameObject character, String message) {
+        Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
+        GameObject invincibleText = PickUpTextPool.SharedInstance.GetPooledObject();
+        if (invincibleText) {
+            TMP_Text text = invincibleText.GetComponent<TMP_Text>();
+            text.text = message;
             invincibleText.transform.position = spawnPosition;
             invincibleText.SetActive(true);
         }

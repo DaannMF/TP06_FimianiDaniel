@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4955254722277676071}
   - component: {fileID: 2601828710757261156}
   m_Layer: 5
-  m_Name: HealText
+  m_Name: PowerUpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Damage
+  m_text: 'invincible
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 444dd445fbb1941efb39025d3307c6d2, type: 2}
   m_sharedMaterial: {fileID: -4158999176299547261, guid: 444dd445fbb1941efb39025d3307c6d2, type: 2}
@@ -75,8 +77,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255447
-  m_fontColor: {r: 0.34229445, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

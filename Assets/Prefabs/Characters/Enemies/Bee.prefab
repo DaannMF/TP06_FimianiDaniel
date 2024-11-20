@@ -106,11 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2245b44fd2c8243aab71799570782b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  health: 50
-  isAlive: 1
-  isInvencible: 0
-  invincibilityTime: 0
+  stats: {fileID: 11400000, guid: 5192a42a998334f718c37ec7f3e69acc, type: 2}
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []

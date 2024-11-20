@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 774902601763216928}
   - component: {fileID: 7995855076295077158}
-  - component: {fileID: 5084230320345143332}
+  - component: {fileID: 4769616431890810906}
   - component: {fileID: 415281384945469987}
   m_Layer: 12
-  m_Name: DamagePowerUp
+  m_Name: JumpPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 1366018846, guid: e9e993f939e1e4a4ba19b842b020b7ac, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.9862056, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5084230320345143332
+--- !u!114 &4769616431890810906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2943642194737556416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7ca642392cc84044990eff7f9f2fc4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b4b6c5323814682a7676b3303a71f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageBuff: {fileID: 11400000, guid: 63994ad8e938a4f6eb48919d47ce1def, type: 2}
+  jumpBuff: {fileID: 11400000, guid: dcfe3136e44674fc6947cbe80af6dc2b, type: 2}
   rotationSpeed: {x: 0, y: 180, z: 0}
 --- !u!58 &415281384945469987
 CircleCollider2D:

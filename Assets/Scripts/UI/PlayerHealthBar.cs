@@ -26,7 +26,8 @@ public class PlayerHealthBar : MonoBehaviour {
     }
 
     private void UpdateHealthBar(Single currentHealth, Single maxHealth) {
-        healthSlider.value = currentHealth / maxHealth;
-        healthText.text = $"Health: {currentHealth}/{maxHealth}";
+        Single value = Math.Max(currentHealth / maxHealth, 0);
+        healthSlider.value = value;
+        healthText.text = $"Health: {Math.Max(currentHealth, 0)}/{maxHealth}";
     }
 }

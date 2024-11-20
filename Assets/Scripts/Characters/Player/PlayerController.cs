@@ -102,4 +102,13 @@ public class PlayerController : MonoBehaviour {
             jumpCount = 0;
         }
     }
+
+    public void ApplyJumpBuff(Single duration) {
+        this.maxJumps += 1;
+        Invoke(nameof(RemoveJumpBuff), duration);
+    }
+
+    private void RemoveJumpBuff() {
+        this.maxJumps -= 1;
+    }
 }

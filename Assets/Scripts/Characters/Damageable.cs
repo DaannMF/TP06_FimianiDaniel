@@ -7,6 +7,12 @@ public class Damageable : MonoBehaviour {
     [SerializeField] private UnityEvent<Int16, Vector2> onDamageTaken;
     [SerializeField] public UnityEvent<Single, Single> onHealthChanged;
 
+    private Int16 maxHealth;
+    private Int16 health;
+    private Boolean isAlive = true;
+    private Boolean isInvencible = false;
+    private Single invincibilityTime = 0.5f;
+
     private EnemyFloatingHealthBar floatingHealthBar;
 
     private Animator animator;
@@ -14,25 +20,25 @@ public class Damageable : MonoBehaviour {
     private Single timeSinceHit = 0f;
 
     public Int16 MaxHealth {
-        get { return stats.maxHealth; }
-        private set { stats.maxHealth = value; }
+        get { return maxHealth; }
+        private set { maxHealth = value; }
     }
 
     public Int16 Health {
-        get { return stats.health; }
+        get { return health; }
         private set {
-            stats.health = value;
-            onHealthChanged?.Invoke(stats.health, stats.maxHealth);
-            if (stats.health <= 0) {
+            health = value;
+            onHealthChanged?.Invoke(health, maxHealth);
+            if (health <= 0) {
                 IsAlive = false;
             }
         }
     }
 
     public Boolean IsAlive {
-        get { return stats.isAlive; }
+        get { return isAlive; }
         private set {
-            stats.isAlive = value;
+            isAlive = value;
             animator.SetBool(Animations.IsAlive, value);
         }
     }
@@ -45,7 +51,10 @@ public class Damageable : MonoBehaviour {
     private void Awake() {
         animator = GetComponent<Animator>();
         floatingHealthBar = GetComponentInChildren<EnemyFloatingHealthBar>();
-
+        MaxHealth = stats.maxHealth;
+        Health = stats.health;
+        isInvencible = stats.isInvencible;
+        invincibilityTime = stats.invincibilityTime;
     }
 
     private void Update() {
@@ -53,16 +62,16 @@ public class Damageable : MonoBehaviour {
     }
 
     public Boolean TakeDamage(Int16 damage, Vector2 knockBack) {
-        if (IsAlive && !stats.isInvencible) {
+        if (IsAlive && !isInvencible) {
             Health -= damage;
 
             NotifyDamaKnockBack(damage, knockBack);
 
-            stats.isInvencible = true;
+            isInvencible = true;
             return true;
         }
 
-        if (stats.isInvencible) {
+        if (isInvencible) {
             CharactersEvents.characterInvincible.Invoke(gameObject);
         }
 
@@ -82,10 +91,10 @@ public class Damageable : MonoBehaviour {
     }
 
     private void CheckInvincibility() {
-        if (stats.isInvencible) {
-            if (timeSinceHit > stats.invincibilityTime) {
+        if (isInvencible) {
+            if (timeSinceHit > invincibilityTime) {
                 timeSinceHit = 0f;
-                stats.isInvencible = false;
+                isInvencible = false;
             }
 
             timeSinceHit += Time.deltaTime;

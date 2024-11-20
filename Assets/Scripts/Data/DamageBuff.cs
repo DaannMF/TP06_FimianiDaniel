@@ -8,7 +8,7 @@ public class DamageBuff : PowerUpEffect {
     [SerializeField] private float duration = 10;
 
     public override void ApplyEffect(GameObject target) {
-        Attack[] attack = target.GetComponents<Attack>();
+        Attack[] attack = target.GetComponentsInChildren<Attack>();
         foreach (Attack a in attack) {
             a.ApplyDamageBuff(damageBuff, duration);
         }

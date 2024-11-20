@@ -5,9 +5,17 @@ public class Attack : MonoBehaviour {
     [SerializeField] private AttackStats attackStats;
     private Int16 buff = 0;
 
+    private Int16 damage;
+    private Vector2 knockBack;
+
     private Int16 Damage {
-        get { return attackStats.damage; }
-        set { attackStats.damage = value; }
+        get { return damage; }
+        set { damage = value; }
+    }
+
+    private void Awake() {
+        Damage = attackStats.damage;
+        knockBack = attackStats.knockBack;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
