@@ -3,13 +3,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour {
-    [SerializeField] private Int16 maxHealth = 100;
-    [SerializeField] private Int16 health = 100;
-    [SerializeField] private Boolean isAlive = true;
-    [SerializeField] private Boolean isInvencible = false;
-    [SerializeField] private Single invincibilityTime = 1.5f;
+    [SerializeField] private DamageableStats stats;
     [SerializeField] private UnityEvent<Int16, Vector2> onDamageTaken;
     [SerializeField] public UnityEvent<Single, Single> onHealthChanged;
+
     private EnemyFloatingHealthBar floatingHealthBar;
 
     private Animator animator;
@@ -17,25 +14,25 @@ public class Damageable : MonoBehaviour {
     private Single timeSinceHit = 0f;
 
     public Int16 MaxHealth {
-        get { return maxHealth; }
-        private set { maxHealth = value; }
+        get { return stats.maxHealth; }
+        private set { stats.maxHealth = value; }
     }
 
     public Int16 Health {
-        get { return health; }
+        get { return stats.health; }
         private set {
-            health = value;
-            onHealthChanged?.Invoke(health, maxHealth);
-            if (health <= 0) {
+            stats.health = value;
+            onHealthChanged?.Invoke(stats.health, stats.maxHealth);
+            if (stats.health <= 0) {
                 IsAlive = false;
             }
         }
     }
 
     public Boolean IsAlive {
-        get { return isAlive; }
+        get { return stats.isAlive; }
         private set {
-            isAlive = value;
+            stats.isAlive = value;
             animator.SetBool(Animations.IsAlive, value);
         }
     }
@@ -56,16 +53,16 @@ public class Damageable : MonoBehaviour {
     }
 
     public Boolean TakeDamage(Int16 damage, Vector2 knockBack) {
-        if (IsAlive && !isInvencible) {
+        if (IsAlive && !stats.isInvencible) {
             Health -= damage;
 
             NotifyDamaKnockBack(damage, knockBack);
 
-            isInvencible = true;
+            stats.isInvencible = true;
             return true;
         }
 
-        if (isInvencible) {
+        if (stats.isInvencible) {
             CharactersEvents.characterInvincible.Invoke(gameObject);
         }
 
@@ -85,10 +82,10 @@ public class Damageable : MonoBehaviour {
     }
 
     private void CheckInvincibility() {
-        if (isInvencible) {
-            if (timeSinceHit > invincibilityTime) {
+        if (stats.isInvencible) {
+            if (timeSinceHit > stats.invincibilityTime) {
                 timeSinceHit = 0f;
-                isInvencible = false;
+                stats.isInvencible = false;
             }
 
             timeSinceHit += Time.deltaTime;

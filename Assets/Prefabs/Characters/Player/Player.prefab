@@ -103,8 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfce3f673dd142b1b46c4561a149282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  knockBack: {x: 4, y: 0}
+  attackStats: {fileID: 11400000, guid: 3eeed32c9989b4475a0dae75846f07e7, type: 2}
 --- !u!1 &2501941593342458400
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,8 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfce3f673dd142b1b46c4561a149282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 13
-  knockBack: {x: 4, y: 0}
+  attackStats: {fileID: 11400000, guid: 5fc7174c3d6384863a8135a41c04a292, type: 2}
 --- !u!1 &5727700855877441514
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,8 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfce3f673dd142b1b46c4561a149282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
-  knockBack: {x: 3, y: 0}
+  attackStats: {fileID: 11400000, guid: 6b7f0f4e908cc48089ec9b0014aef918, type: 2}
 --- !u!1 &6010671958186974005
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,8 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfce3f673dd142b1b46c4561a149282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 17
-  knockBack: {x: 4, y: 0}
+  attackStats: {fileID: 11400000, guid: d6a7061b2a11f4f4bbc9945d0983028b, type: 2}
 --- !u!1 &7962634505530401997
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,11 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2245b44fd2c8243aab71799570782b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 100
-  isAlive: 1
-  isInvencible: 0
-  invincibilityTime: 1.5
+  stats: {fileID: 11400000, guid: 5c2205d540a684bf9b6e2e6860ff91d1, type: 2}
   onDamageTaken:
     m_PersistentCalls:
       m_Calls:
@@ -730,6 +722,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d5b3a09e-6249-47e5-875e-63ac10442e9d
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1b4942d3-450c-4f8b-be21-6fc4cb9c042c
+    m_ActionName: UI/Exit[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
