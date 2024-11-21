@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,6 +33,10 @@ public class StorePanel : MonoBehaviour {
         if (player) playerInput = player.GetComponent<PlayerInput>();
     }
 
+    private void Update() {
+        CheckButtonsAvailability();
+    }
+
     private void OnDestroy() {
         backButton.onClick.RemoveListener(OnBackButtonClicked);
         damageButton.onClick.RemoveListener(OnDamageButtonClicked);
@@ -45,31 +50,49 @@ public class StorePanel : MonoBehaviour {
     }
 
     private void OnDamageButtonClicked() {
-        audioController.PlayButtonClickSound();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player) {
-            Attack[] attacks = player.GetComponentsInChildren<Attack>();
-            foreach (Attack attack in attacks) {
-                attack.ApplyBuyDamageBuff(3);
+        if (damageButton.enabled) {
+            audioController.PlayButtonClickSound();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player) {
+                Attack[] attacks = player.GetComponentsInChildren<Attack>();
+                foreach (Attack attack in attacks) {
+                    attack.ApplyBuyDamageBuff(3);
+                }
             }
+            CharactersEvents.itemBuy?.Invoke(storeData.damagePrice);
         }
     }
 
     private void OnHealthButtonClicked() {
-        audioController.PlayButtonClickSound();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player) {
-            Damageable damageable = player.GetComponent<Damageable>();
-            if (damageable) {
-                damageable.ApplyBuyMaxHealth(10);
+        if (healthButton.enabled) {
+            audioController.PlayButtonClickSound();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player) {
+                Damageable damageable = player.GetComponent<Damageable>();
+                if (damageable) {
+                    damageable.ApplyBuyMaxHealth(10);
+                }
             }
+            CharactersEvents.itemBuy?.Invoke(storeData.healthPrice);
         }
     }
 
     private void LoadStoreData() {
-        damageText.text = $"+ {storeData.damageAddition.ToString()} Damage";
+        damageText.text = $"+{storeData.damageAddition.ToString()} Damage";
         damagePriceText.text = storeData.damagePrice.ToString();
-        healthText.text = $"+ {storeData.healthAddition.ToString()} Damage";
+        healthText.text = $"+{storeData.healthAddition.ToString()} Max Health";
         healthPriceText.text = storeData.healthPrice.ToString();
+    }
+
+    private void CheckButtonsAvailability() {
+        Boolean isDamageButtonAvailable = storeData.damagePrice <= GameManager.SharedInstance.Coins;
+        damageButton.interactable = isDamageButtonAvailable;
+        damageButton.enabled = isDamageButtonAvailable;
+        damageButton.gameObject.SetActive(isDamageButtonAvailable);
+
+        Boolean isHealthButtonAvailable = storeData.healthPrice <= GameManager.SharedInstance.Coins;
+        healthButton.interactable = isHealthButtonAvailable;
+        healthButton.enabled = isHealthButtonAvailable;
+        healthButton.gameObject.SetActive(isHealthButtonAvailable);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42286677d8fa24b30b40b8c43ce9531c, type: 3}
   m_Name: StoreData
   m_EditorClassIdentifier: 
-  damagePrice: 0
-  damageAddition: 0
-  healthPrice: 0
-  healthAddition: 0
+  damagePrice: 10
+  damageAddition: 3
+  healthPrice: 10
+  healthAddition: 10

@@ -1,13 +1,32 @@
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour {
     [Header("Audio")]
     [SerializeField] private AudioMixer audioMixer;
-    private PlayerInput playerInput;
+    [SerializeField] public UnityEvent onStatsChanged;
 
+    private Int16 coins;
+    public Int16 Coins {
+        get => coins;
+        set {
+            coins = value;
+        }
+    }
+
+    private Int16 score;
+    public Int16 Score {
+        get => score;
+        set {
+            score = value;
+        }
+    }
+
+
+    private PlayerInput playerInput;
     private static GameManager instance;
     public static GameManager SharedInstance {
         get {
@@ -21,10 +40,18 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player) playerInput = player.GetComponent<PlayerInput>();
+        CharactersEvents.enemyDied += EnemyDefeated;
+        CharactersEvents.itemBuy += BuyItem;
     }
 
     private void Start() {
         LoadPlayerPrefs();
+    }
+
+    private void OnDestroy() {
+        onStatsChanged.RemoveAllListeners();
+        CharactersEvents.enemyDied -= EnemyDefeated;
+        CharactersEvents.itemBuy -= BuyItem;
     }
 
     public void PauseGame() {
@@ -47,5 +74,16 @@ public class GameManager : MonoBehaviour {
         audioMixer.SetFloat("music", Mathf.Log10(music_volume) * 20);
         audioMixer.SetFloat("sfx", Mathf.Log10(sfx_volume) * 20);
         audioMixer.SetFloat("ui", Mathf.Log10(ui_volume) * 20);
+    }
+
+    public void EnemyDefeated(Int16 score, Int16 coins) {
+        Coins += coins;
+        Score += score;
+        onStatsChanged?.Invoke();
+    }
+
+    public void BuyItem(Int16 price) {
+        Coins -= price;
+        onStatsChanged?.Invoke();
     }
 }

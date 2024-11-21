@@ -34,6 +34,9 @@ public class Damageable : MonoBehaviour {
             onHealthChanged?.Invoke(health, maxHealth);
             if (health <= 0) {
                 IsAlive = false;
+                if (gameObject.tag != "Player") {
+                    CharactersEvents.enemyDied.Invoke(stats.score, stats.coins);
+                }
             }
         }
     }
