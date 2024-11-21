@@ -1,7 +1,7 @@
 # Trabajo Práctico N°06
 
 - Fecha de Inicio: 28/10/2024 19:00:00
-- Fecha de Fin: 18/11/2024 23:59:59
+- Fecha de Fin: 22/11/2024 13:00:00
 
 Contenidos que se repasarán:
 
@@ -33,7 +33,7 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 - ✅ Debe poder saltar.
 - ✅ Posee barra de vida.
 - ✅ Posibilidad de curarse.
-- Todas sus acciones están animadas y con sonido.
+- ✅ Todas sus acciones están animadas y con sonido.
 
 ### Enemigos
 
@@ -41,13 +41,13 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 - ✅ Poseen barra de vida.
 - ✅ El jugador les puede quitar vida de alguna manera.
 - ✅ Feedback visual al morir. (Partículas o algo).
-- Todas sus acciones están animadas y con sonido.
+- ✅ Todas sus acciones están animadas y con sonido.
 
 ### Pickables
 
 - ✅ El jugador se cura.
 - ✅ El jugador aumenta el daño.
-- El jugador no puede recibir daño durante 10 segundos.
+- ✅ El jugador no puede recibir daño durante 10 segundos.
 - Monedas.
 
 ### Sonido
@@ -58,7 +58,7 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 
 ### Datos
 
-- Todas las configuraciones del juego / Nivel deben estar en un “ScriptableObject".
+- ✅ Todas las configuraciones del juego / Nivel deben estar en un “ScriptableObject".
 - Los datos de la partida deben guardarse en “PlayerPrefs” (Máximo score alcanzado, Monedas,
 etc).
 

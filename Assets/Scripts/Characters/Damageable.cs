@@ -108,4 +108,15 @@ public class Damageable : MonoBehaviour {
         if (floatingHealthBar) floatingHealthBar.UpdateHealthBar(Health, MaxHealth);
         CharactersEvents.characterDamaged.Invoke(gameObject, damage);
     }
+
+    public void ApplyInvincibilityBuff(Single duration) {
+        isInvencible = true;
+        invincibilityTime += duration;
+        Invoke(nameof(RemoveInvincibilityBuff), duration);
+    }
+
+    public void RemoveInvincibilityBuff() {
+        isInvencible = false;
+        invincibilityTime = stats.invincibilityTime;
+    }
 }

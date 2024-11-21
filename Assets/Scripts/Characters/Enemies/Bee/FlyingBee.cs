@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FlyingBee : MonoBehaviour {
-    [SerializeField] private Single speed = 3f;
+    [SerializeField] private EnemyMovementStats stats;
     [SerializeField] private List<Transform> waypoints = new();
     private Rigidbody2D rb;
     private DetectionZone detectionZone;
@@ -12,6 +12,12 @@ public class FlyingBee : MonoBehaviour {
     private Transform nextWaypoint;
     private Int16 currentWaypointIndex = 0;
     private Boolean _hasTarget;
+    private Single speed = 3f;
+    public Single Speed {
+        get { return speed; }
+        private set { speed = value; }
+    }
+
     public Boolean HasTarget {
         get { return _hasTarget; }
         private set {
@@ -30,6 +36,7 @@ public class FlyingBee : MonoBehaviour {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         damageable = GetComponent<Damageable>();
+        Speed = stats.speed;
     }
 
     private void Start() {

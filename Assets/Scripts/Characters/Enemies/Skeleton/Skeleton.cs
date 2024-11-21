@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class Skeleton : MonoBehaviour {
-    [SerializeField] private Single walkSpeed = 5f;
+    [SerializeField] private EnemyMovementStats stats;
     private Rigidbody2D rb;
     private Animator animator;
     private DetectionZone detectionZone;
@@ -12,6 +12,13 @@ public class Skeleton : MonoBehaviour {
     private Damageable damageable;
     private Vector2 lookDirection = Vector2.right;
     private WalkableDirection _walkDirection;
+    private Single speed = 3f;
+
+    public Single Speed {
+        get { return speed; }
+        private set { speed = value; }
+    }
+
     public WalkableDirection WalkDirection {
         get { return _walkDirection; }
         private set {
@@ -49,6 +56,7 @@ public class Skeleton : MonoBehaviour {
         groundDetectionZone = detectionZones[1];
         animator = GetComponent<Animator>();
         damageable = GetComponent<Damageable>();
+        Speed = stats.speed;
     }
 
     private void Update() {
@@ -71,7 +79,7 @@ public class Skeleton : MonoBehaviour {
         }
         if (!damageable.LockVelocity) {
             if (CanMove)
-                rb.velocity = new Vector2(walkSpeed * lookDirection.x, rb.velocity.y);
+                rb.velocity = new Vector2(Speed * lookDirection.x, rb.velocity.y);
             else
                 rb.velocity = new Vector2(0, rb.velocity.y);
         }

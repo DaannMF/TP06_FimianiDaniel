@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour {
     [SerializeField] private AttackStats attackStats;
-    private Int16 buff = 0;
+    private Int16 currentBuff = 0;
 
     private Int16 damage;
     private Vector2 knockBack;
@@ -28,13 +28,13 @@ public class Attack : MonoBehaviour {
     }
 
     public void ApplyDamageBuff(Int16 buff, Single duration) {
-        this.buff = buff;
-        Damage += this.buff;
+        currentBuff = buff;
+        Damage += buff;
         Invoke(nameof(RemoveDamageBuff), duration);
     }
 
     private void RemoveDamageBuff() {
-        Damage -= this.buff;
-        this.buff = 0;
+        Damage -= currentBuff;
+        currentBuff = 0;
     }
 }

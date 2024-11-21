@@ -4,16 +4,36 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class PlayerController : MonoBehaviour {
-    [SerializeField] private Single walkSpeed = 5f;
-    [SerializeField] private Single jumpForce = 10f;
-    [SerializeField] private Int16 maxJumps = 2;
+
+    [SerializeField] private PlayerMovementStats stats;
     private Rigidbody2D rb;
     private Animator animator;
     private TouchingDirections touchingDirections;
+
+    private Single walkSpeed;
+    private Single jumpForce;
+    private Int16 maxJumps;
+
     private Damageable damageable;
     private Vector2 moveInput;
     private Int16 jumpCount = 0;
     private Boolean _isMoving = false;
+
+    public Single WalkSpeed {
+        get { return walkSpeed; }
+        private set { walkSpeed = value; }
+    }
+
+    public Single JumpForce {
+        get { return jumpForce; }
+        private set { jumpForce = value; }
+    }
+
+    public Int16 MaxJumps {
+        get { return maxJumps; }
+        private set { maxJumps = value; }
+    }
+
     public Boolean IsMoving {
         get { return _isMoving; }
         private set {
@@ -35,6 +55,9 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
         damageable = GetComponent<Damageable>();
+        WalkSpeed = stats.walkSpeed;
+        JumpForce = stats.jumpForce;
+        MaxJumps = stats.maxJumps;
     }
 
     private void Update() {
@@ -104,11 +127,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void ApplyJumpBuff(Single duration) {
-        this.maxJumps += 1;
+        maxJumps += 1;
         Invoke(nameof(RemoveJumpBuff), duration);
     }
 
     private void RemoveJumpBuff() {
-        this.maxJumps -= 1;
+        maxJumps -= 1;
     }
 }

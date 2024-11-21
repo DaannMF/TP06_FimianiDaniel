@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbd23451041d45b3a591aa21e4227a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healTextPrefabs: {fileID: 0}
-  poolSize: 0
+  healTextPrefabs: {fileID: 6663155511922058138, guid: 5cbc67704022848679fd52bf72332419, type: 3}
+  poolSize: 1
 --- !u!114 &7734905609696178222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6267fceaa7f39458887794dcba94aeed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibleTextPrefabs: {fileID: 6663155511922058138, guid: f32f0f62cc98d4d1a8bb3a8346c89844, type: 3}
-  poolSize: 0
+  pickUpTextPrefabs: {fileID: 6663155511922058138, guid: f32f0f62cc98d4d1a8bb3a8346c89844, type: 3}
+  poolSize: 3
 --- !u!1001 &4638380718309849251
 PrefabInstance:
   m_ObjectHideFlags: 0
