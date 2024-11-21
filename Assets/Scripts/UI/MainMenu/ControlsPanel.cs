@@ -8,6 +8,9 @@ public class ControlsPanel : MonoBehaviour {
     [Header("Panels")]
     [SerializeField] private GameObject mainMenuPanel;
 
+    [Header("Audio")]
+    [SerializeField] private UIAudioController audioController;
+
     private void Awake() {
         backButton.onClick.AddListener(OnBackButtonClicked);
     }
@@ -17,6 +20,7 @@ public class ControlsPanel : MonoBehaviour {
     }
 
     private void OnBackButtonClicked() {
+        audioController.PlayButtonClickSound();
         mainMenuPanel.SetActive(true);
         gameObject.SetActive(false);
     }

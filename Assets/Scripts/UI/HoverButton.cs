@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 
 public class HoverButton : MonoBehaviour {
+    [SerializeField] private UIAudioController uiAudioController;
+
     private TMP_Text text;
 
     private void Awake() {
@@ -14,6 +16,7 @@ public class HoverButton : MonoBehaviour {
 
     public void OnPointerEnter() {
         text.color = Color.black;
+        uiAudioController.PlayButtonHoverSound();
     }
 
     public void OnPointerExit() {

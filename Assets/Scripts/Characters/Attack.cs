@@ -33,6 +33,10 @@ public class Attack : MonoBehaviour {
         Invoke(nameof(RemoveDamageBuff), duration);
     }
 
+    public void ApplyBuyDamageBuff(Int16 damageBuy) {
+        Damage += damageBuy;
+    }
+
     private void RemoveDamageBuff() {
         Damage -= currentBuff;
         currentBuff = 0;

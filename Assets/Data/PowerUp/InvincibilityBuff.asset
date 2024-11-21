@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: InvincibilityBuff
   m_EditorClassIdentifier: 
   duration: 10
+  audioClip: {fileID: 8300000, guid: fc7fd733f22864fa28cc0bb0c5357b18, type: 3}

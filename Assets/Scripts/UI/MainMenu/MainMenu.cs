@@ -19,6 +19,9 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
 
+    [Header("Audio")]
+    [SerializeField] private UIAudioController audioController;
+
     private PlayerInput playerInput;
 
     private void Awake() {
@@ -27,7 +30,8 @@ public class MainMenu : MonoBehaviour {
         settingsButton.onClick.AddListener(OnSettingsButtonClicked);
         creditsButton.onClick.AddListener(OnCreditsButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
-        playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player) playerInput = player.GetComponent<PlayerInput>();
     }
 
     private void OnEnable() {
@@ -47,27 +51,30 @@ public class MainMenu : MonoBehaviour {
     }
 
     private void OnPlayButtonClicked() {
+        audioController.PlayButtonClickSound();
         if (SceneManager.GetActiveScene().name != "GamePlayScene")
             SceneManager.LoadScene("GamePlayScene");
         else {
             panelPause.SetActive(false);
-            playerInput.ActivateInput();
         }
 
-        Time.timeScale = 1;
+        GameManager.SharedInstance.ResumeGame();
     }
 
     private void OnControlsButtonClicked() {
+        audioController.PlayButtonClickSound();
         controlsPanel.SetActive(true);
         gameObject.SetActive(false);
     }
 
     private void OnSettingsButtonClicked() {
+        audioController.PlayButtonClickSound();
         settingsPanel.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 
     private void OnCreditsButtonClicked() {
+        audioController.PlayButtonClickSound();
         creditsPanel.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }

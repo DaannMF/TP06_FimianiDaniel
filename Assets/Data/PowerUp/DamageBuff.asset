@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageBuff: 15
   duration: 10
+  audioClip: {fileID: 8300000, guid: 6171f3152c5dc466f87996ee6ecd6c3e, type: 3}

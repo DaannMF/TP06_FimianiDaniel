@@ -54,12 +54,12 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 
 - ✅ Audio Mixer: Master, Music, FX, Ui.
 - ✅ Al menos 3 deben poder ser modificados por sliders en Settings.
-- Toda acción del juego debe reflejarse en sonido.
+- ✅ Toda acción del juego debe reflejarse en sonido.
 
 ### Datos
 
 - ✅ Todas las configuraciones del juego / Nivel deben estar en un “ScriptableObject".
-- Los datos de la partida deben guardarse en “PlayerPrefs” (Máximo score alcanzado, Monedas,
+- ✅ Los datos de la partida deben guardarse en “PlayerPrefs” (Máximo score alcanzado, Monedas,
 etc).
 
 ### Extras

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: JumpBuff
   m_EditorClassIdentifier: 
   duration: 10
+  audioClip: {fileID: 8300000, guid: 192ce45c3b00a4645aa2b73268f5c92f, type: 3}

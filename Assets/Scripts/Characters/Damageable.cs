@@ -13,7 +13,7 @@ public class Damageable : MonoBehaviour {
     private Boolean isInvencible = false;
     private Single invincibilityTime = 0.5f;
 
-    private EnemyFloatingHealthBar floatingHealthBar;
+    private EnemyFloatingHealthBar enemyFloatingHealthBar;
 
     private Animator animator;
 
@@ -21,7 +21,10 @@ public class Damageable : MonoBehaviour {
 
     public Int16 MaxHealth {
         get { return maxHealth; }
-        private set { maxHealth = value; }
+        private set {
+            maxHealth = value;
+            onHealthChanged?.Invoke(health, maxHealth);
+        }
     }
 
     public Int16 Health {
@@ -50,7 +53,7 @@ public class Damageable : MonoBehaviour {
 
     private void Awake() {
         animator = GetComponent<Animator>();
-        floatingHealthBar = GetComponentInChildren<EnemyFloatingHealthBar>();
+        enemyFloatingHealthBar = GetComponentInChildren<EnemyFloatingHealthBar>();
         MaxHealth = stats.maxHealth;
         Health = stats.health;
         isInvencible = stats.isInvencible;
@@ -105,7 +108,7 @@ public class Damageable : MonoBehaviour {
         LockVelocity = true;
         animator.SetTrigger(Animations.HitTrigger);
         onDamageTaken.Invoke(damage, knockBack);
-        if (floatingHealthBar) floatingHealthBar.UpdateHealthBar(Health, MaxHealth);
+        if (enemyFloatingHealthBar) enemyFloatingHealthBar.UpdateHealthBar(Health, MaxHealth);
         CharactersEvents.characterDamaged.Invoke(gameObject, damage);
     }
 
@@ -113,6 +116,11 @@ public class Damageable : MonoBehaviour {
         isInvencible = true;
         invincibilityTime += duration;
         Invoke(nameof(RemoveInvincibilityBuff), duration);
+    }
+
+    public void ApplyBuyMaxHealth(Int16 healthBuy) {
+        MaxHealth += healthBuy;
+        if (enemyFloatingHealthBar) enemyFloatingHealthBar.UpdateHealthBar(Health, MaxHealth);
     }
 
     public void RemoveInvincibilityBuff() {

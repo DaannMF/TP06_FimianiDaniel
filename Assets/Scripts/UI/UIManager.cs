@@ -2,21 +2,27 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject pauseMenu;
-    private PlayerInput playerInput;
+    [SerializeField] private GameObject storePanel;
+    [SerializeField] private UIAudioController uIAudioController;
 
     private void Awake() {
         CharactersEvents.characterDamaged += CreateDamageText;
         CharactersEvents.characterHealed += CreateHealthText;
         CharactersEvents.characterInvincible += CreateInvincibleText;
         CharactersEvents.powerUpPicked += CreatePowerUpText;
-        playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
     }
 
     private void Update() {
-        CheckGamePause();
+        if (!storePanel.activeSelf) {
+            CheckGamePause();
+        }
+        if (SceneManager.GetActiveScene().name == "GamePlayScene" && !pauseMenu.activeSelf) {
+            CheckSTore();
+        }
     }
 
     private void OnDestroy() {
@@ -73,10 +79,18 @@ public class UIManager : MonoBehaviour {
     }
 
     public void OnPauseGame() {
-        Time.timeScale = 0;
-        if (playerInput) {
-            playerInput.DeactivateInput();
+        if (!pauseMenu.activeSelf) {
+            GameManager.SharedInstance.PauseGame();
+            pauseMenu.SetActive(true);
+            uIAudioController.PlayPauseSound();
         }
-        pauseMenu.SetActive(true);
+    }
+
+    public void CheckSTore() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            GameManager.SharedInstance.PauseGame();
+            storePanel.SetActive(true);
+            uIAudioController.PlayPauseSound();
+        }
     }
 }

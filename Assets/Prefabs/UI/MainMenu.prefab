@@ -476,6 +476,152 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &851386770098732740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4221896413492820441}
+  - component: {fileID: 5762679245633195930}
+  - component: {fileID: 4435076865397336254}
+  m_Layer: 5
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4221896413492820441
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851386770098732740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 555105696726087334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &5762679245633195930
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851386770098732740}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8897173990638916038, guid: 55a45672f096d4d288e19e30a0da3e8b, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4435076865397336254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851386770098732740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f36f1a67ed9455a9ee7cad77b2d35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAudioData: {fileID: 11400000, guid: 8bead2d81b7594c19b3723a9e0ed3177, type: 2}
 --- !u!1 &970478028510847688
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 7544629398974830670}
   mainMenuPanel: {fileID: 4487794130606949463}
+  audioController: {fileID: 4435076865397336254}
 --- !u!1 &1216754718475642414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1383,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.323
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1289,6 +1436,7 @@ RectTransform:
   - {fileID: 2529969383507201775}
   - {fileID: 9015611966931422789}
   - {fileID: 57841187337821605}
+  - {fileID: 4221896413492820441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1915,9 +2063,9 @@ RectTransform:
   - {fileID: 601197814843662341}
   m_Father: {fileID: 306602437741090541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -200}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6122080097980571896
@@ -2104,6 +2252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 3746872764963717826}
   mainMenuPanel: {fileID: 4487794130606949463}
+  audioController: {fileID: 4435076865397336254}
 --- !u!1 &4135941519848879285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2527,7 @@ MonoBehaviour:
   sfxSlider: {fileID: 8021878045403028702}
   uiSlider: {fileID: 2282349393238165049}
   mainMenuPanel: {fileID: 4487794130606949463}
+  audioController: {fileID: 4435076865397336254}
 --- !u!1 &4379175635706518256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,11 +2894,13 @@ MonoBehaviour:
   settingsButton: {fileID: 5909357876027422256}
   creditsButton: {fileID: 5035602927559790004}
   exitButton: {fileID: 4412993418454264885}
+  panelPause: {fileID: 0}
   titleText: {fileID: 2875682566887177126}
   panelMainMenu: {fileID: 4487794130606949463}
   controlsPanel: {fileID: 1030552961731345222}
   settingsPanel: {fileID: 4373651479172308898}
   creditsPanel: {fileID: 3934766990175706534}
+  audioController: {fileID: 4435076865397336254}
 --- !u!1 &4747403814149294895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,7 +3062,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.247
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3788,7 +3940,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.33
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5019,7 +5171,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.342
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5210,7 +5362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5218,7 +5370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5258,11 +5410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5280,6 +5432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5397,6 +5553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5444,7 +5604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5452,7 +5612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5492,11 +5652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5514,6 +5674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5561,7 +5725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5569,7 +5733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5609,11 +5773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5631,6 +5795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5678,7 +5846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5686,7 +5854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5726,11 +5894,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -280
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5748,6 +5916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreditsButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5795,7 +5967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5803,7 +5975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5843,11 +6015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 2675289667647001711, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5865,6 +6037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5982,6 +6158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     - target: {fileID: 6212483068231309933, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -6103,6 +6283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5725337025532224672, guid: 37d183fd6d6fc4fc09a4a840575a3822, type: 3}
+      propertyPath: uiAudioController
+      value: 
+      objectReference: {fileID: 4435076865397336254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
