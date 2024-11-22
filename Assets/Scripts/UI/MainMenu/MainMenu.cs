@@ -29,6 +29,9 @@ public class MainMenu : MonoBehaviour {
         controlsButton.onClick.AddListener(OnControlsButtonClicked);
         settingsButton.onClick.AddListener(OnSettingsButtonClicked);
         creditsButton.onClick.AddListener(OnCreditsButtonClicked);
+#if UNITY_WEBGL
+        exitButton.gameObject.SetActive(false);
+#endif
         exitButton.onClick.AddListener(OnExitButtonClicked);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player) playerInput = player.GetComponent<PlayerInput>();
