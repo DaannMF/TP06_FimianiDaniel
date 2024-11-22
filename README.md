@@ -71,4 +71,4 @@ etc).
 
 ## Enlace a Itchio
 
-[Enlace a Itchio)(https://github.com/DaannMF/TP06_FimianiDaniel)
+[Enlace a Itchio](https://github.com/DaannMF/TP06_FimianiDaniel)
