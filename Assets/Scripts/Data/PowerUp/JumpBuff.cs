@@ -1,5 +1,4 @@
 
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "JumpBuff", menuName = "PowerUp/JumpBuff")]
