@@ -99,12 +99,12 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void OnGameOver() {
+    private void OnGameOver() {
         GameManager.SharedInstance.PauseGame();
         gameOverPanel.SetActive(true);
     }
 
-    public void OnGameWin() {
+    private void OnGameWin() {
         GameManager.SharedInstance.PauseGame();
         winPanel.SetActive(true);
     }
