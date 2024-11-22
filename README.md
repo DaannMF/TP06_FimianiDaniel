@@ -68,3 +68,7 @@ etc).
 - ✅ El jugador posee Doble Salto.
 - ✅ El jugador posee Triple Salto a través de un power up.
 - ✅ Tienda: Con las Monedas se pueden comprar cosas (Ej: Chaleco, +Daño, +VidaMax, etc).
+
+## Enlace a Itchio
+
+[Enlace a Itchio)(https://github.com/DaannMF/TP06_FimianiDaniel)
