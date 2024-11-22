@@ -6,39 +6,37 @@ public class PlayOneShootBehaviour : StateMachineBehaviour {
     [SerializeField] private Boolean playOnEnter = true, playOnExit = false, playAfterDelay = false;
     [SerializeField] private Single delay = 0.25f;
     private AudioSource audioSource;
-
     private Single timeSinceEnter = 0;
     private Boolean hasDelayedSoundPlayed = false;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        if (this.playOnEnter) {
-            this.audioSource = animator.gameObject.GetComponent<AudioSource>();
-            this.audioSource.PlayOneShot(this.audioClip);
+        if (playOnEnter) {
+            audioSource = animator.gameObject.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(audioClip);
         }
 
-        this.timeSinceEnter = 0;
-        this.hasDelayedSoundPlayed = false;
+        timeSinceEnter = 0;
+        hasDelayedSoundPlayed = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        if (this.playAfterDelay && !this.hasDelayedSoundPlayed) {
-            this.timeSinceEnter += Time.deltaTime;
-            if (this.timeSinceEnter >= this.delay) {
-                this.audioSource = animator.gameObject.GetComponent<AudioSource>();
-                this.audioSource.PlayOneShot(this.audioClip);
-                this.hasDelayedSoundPlayed = true;
+        if (playAfterDelay && !hasDelayedSoundPlayed) {
+            timeSinceEnter += Time.deltaTime;
+            if (timeSinceEnter >= delay) {
+                audioSource = animator.gameObject.GetComponent<AudioSource>();
+                audioSource.PlayOneShot(audioClip);
+                hasDelayedSoundPlayed = true;
             }
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-
-        if (this.playOnExit) {
-            this.audioSource = animator.gameObject.GetComponent<AudioSource>();
-            this.audioSource.PlayOneShot(this.audioClip);
+        if (playOnExit) {
+            audioSource = animator.gameObject.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(audioClip);
         }
     }
 }

@@ -48,7 +48,7 @@ Crear un juego de estilo Platformer 2D con jugabilidad similar a:
 - ✅ El jugador se cura.
 - ✅ El jugador aumenta el daño.
 - ✅ El jugador no puede recibir daño durante 10 segundos.
-- Monedas.
+- ✅ Monedas.
 
 ### Sonido
 
@@ -67,4 +67,4 @@ etc).
 - ✅ El juego se puede jugar a través de la Web sin descargar (Build WebGL).
 - ✅ El jugador posee Doble Salto.
 - ✅ El jugador posee Triple Salto a través de un power up.
-- Tienda: Con las Monedas se pueden comprar cosas (Ej: Chaleco, +Daño, +VidaMax, etc).
+- ✅ Tienda: Con las Monedas se pueden comprar cosas (Ej: Chaleco, +Daño, +VidaMax, etc).

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject storePanel;
+    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private UIAudioController uIAudioController;
 
     private void Awake() {
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour {
         CharactersEvents.characterHealed += CreateHealthText;
         CharactersEvents.characterInvincible += CreateInvincibleText;
         CharactersEvents.powerUpPicked += CreatePowerUpText;
+        CharactersEvents.playerDied += OnGameOver;
     }
 
     private void Update() {
@@ -30,6 +32,7 @@ public class UIManager : MonoBehaviour {
         CharactersEvents.characterHealed -= CreateHealthText;
         CharactersEvents.characterInvincible -= CreateInvincibleText;
         CharactersEvents.powerUpPicked -= CreatePowerUpText;
+        CharactersEvents.playerDied -= OnGameOver;
     }
 
     public void CreateDamageText(GameObject character, Int16 damage) {
@@ -92,5 +95,10 @@ public class UIManager : MonoBehaviour {
             storePanel.SetActive(true);
             uIAudioController.PlayPauseSound();
         }
+    }
+
+    public void OnGameOver() {
+        GameManager.SharedInstance.PauseGame();
+        gameOverPanel.SetActive(true);
     }
 }

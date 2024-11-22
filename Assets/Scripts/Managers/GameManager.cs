@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     [Header("Audio")]
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour {
         get => coins;
         set {
             coins = value;
+            onStatsChanged?.Invoke();
         }
     }
 
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour {
         get => score;
         set {
             score = value;
+            onStatsChanged?.Invoke();
         }
     }
 
@@ -79,11 +82,18 @@ public class GameManager : MonoBehaviour {
     public void EnemyDefeated(Int16 score, Int16 coins) {
         Coins += coins;
         Score += score;
-        onStatsChanged?.Invoke();
     }
 
     public void BuyItem(Int16 price) {
         Coins -= price;
-        onStatsChanged?.Invoke();
+    }
+
+    public void CoinPicker() {
+        Coins += 1;
+    }
+
+    public void RestartGame() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
