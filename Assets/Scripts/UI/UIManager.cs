@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject storePanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject winPanel;
     [SerializeField] private UIAudioController uIAudioController;
 
     private void Awake() {
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour {
         CharactersEvents.characterInvincible += CreateInvincibleText;
         CharactersEvents.powerUpPicked += CreatePowerUpText;
         CharactersEvents.playerDied += OnGameOver;
+        CharactersEvents.playerWon += OnGameWin;
     }
 
     private void Update() {
@@ -33,6 +35,7 @@ public class UIManager : MonoBehaviour {
         CharactersEvents.characterInvincible -= CreateInvincibleText;
         CharactersEvents.powerUpPicked -= CreatePowerUpText;
         CharactersEvents.playerDied -= OnGameOver;
+        CharactersEvents.playerWon -= OnGameWin;
     }
 
     public void CreateDamageText(GameObject character, Int16 damage) {
@@ -100,5 +103,10 @@ public class UIManager : MonoBehaviour {
     public void OnGameOver() {
         GameManager.SharedInstance.PauseGame();
         gameOverPanel.SetActive(true);
+    }
+
+    public void OnGameWin() {
+        GameManager.SharedInstance.PauseGame();
+        winPanel.SetActive(true);
     }
 }

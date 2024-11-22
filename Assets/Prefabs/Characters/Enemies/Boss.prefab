@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8632393188648661287}
   - component: {fileID: 5093190815076149639}
   - component: {fileID: 2606820499599748068}
+  - component: {fileID: 295540490245078311}
   - component: {fileID: 1456646903058788888}
   - component: {fileID: 7764317450795125570}
   - component: {fileID: 3859721733169771308}
@@ -168,6 +169,18 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   touchCollider: {fileID: 0}
+--- !u!114 &295540490245078311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123700371585098298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab48158bf714d4a4cba3ffee3abcb6a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1456646903058788888
 Rigidbody2D:
   serializedVersion: 4
