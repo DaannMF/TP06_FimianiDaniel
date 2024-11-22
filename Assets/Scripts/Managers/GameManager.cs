@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player) playerInput = player.GetComponent<PlayerInput>();
+        if (playerInput) playerInput.ActivateInput();
         CharactersEvents.enemyDied += EnemyDefeated;
         CharactersEvents.itemBuy += BuyItem;
     }
